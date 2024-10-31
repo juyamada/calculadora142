@@ -25,7 +25,9 @@ public class Main {
     }
 
     public static float multiplicar(float num1, float num2) {
-        return num1 * num2;
+        float resultado = num1 * num2;
+        System.out.println("Multiplicação de " + num1 + "x" + num2 + " = " + resultado);
+        return resultado;
 
     }
 

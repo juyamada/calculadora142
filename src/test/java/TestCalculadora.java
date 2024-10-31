@@ -36,7 +36,7 @@ public class TestCalculadora {
         assertEquals(resultadoEsperado, resultadoAtual);
 
     }
-    @Test
+    @Test 
     public void testeSubtrair(){
         float num1 = 25;
         float num2 = 14;
@@ -48,7 +48,7 @@ public class TestCalculadora {
         assertEquals(resultadoEsperado, resultadoAtual);
 
     }
-    @Test
+    @Test 
     public void testeMultiplicar(){
         float num1 = 8;
         float num2 =7;
@@ -69,7 +69,7 @@ public class TestCalculadora {
 
         assertEquals(resultadoEsperado, resultadoAtual);
     }
-    @Test
+    @Test 
     public void testeDividirPorZero(){
         int num1 = 7;
         int num2 = 0;
@@ -85,7 +85,7 @@ public class TestCalculadora {
       //DDT: Data driven Testing --> Teste Direcionado à dados
     // Popular: Teste com massa
 
-    @ParameterizedTest
+    @ParameterizedTest 
     @CsvSource(value = {
         "15, 25, 40.0",
         "0, 12, 12.0",

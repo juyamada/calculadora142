@@ -1,6 +1,13 @@
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import java.text.DecimalFormat;
+
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvFileSource;
+import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.shadow.com.univocity.parsers.csv.CsvFormat;
 
 import com.iterasys.Main;
 
@@ -15,7 +22,7 @@ public class TestAreas142 {
 
     // Funções métodos
 
-    @Test
+    @Test 
     public void AreaQuadrado(){
         // Dados de saída
         float resultadoEsperado = 20;
@@ -27,7 +34,7 @@ public class TestAreas142 {
         assertEquals(resultadoEsperado,resultadoAtual);
     }
 
-    @Test
+    @Test 
     public void AreaRetangulo(){
         // Dados de saída
         float resultadoEsperado = 15;
@@ -39,7 +46,7 @@ public class TestAreas142 {
         assertEquals(resultadoEsperado,resultadoAtual);
     }
 
-    @Test
+    @Test 
     public void AreaCirculo(){
         // Dados de saída
         double resultadoEsperado = 13;
@@ -51,7 +58,7 @@ public class TestAreas142 {
         assertEquals(resultadoEsperado, resultadoAtual);
     }
 
-    @Test
+    @Test 
     public void AreaTriangulo(){
         // Dados de saída
         float resultadoEsperado = 10;
@@ -62,5 +69,28 @@ public class TestAreas142 {
         // Valida
         assertEquals(resultadoEsperado,resultadoAtual);
     }
+
+    @ParameterizedTest 
+    @CsvSource(value = {
+        "3, 10, 30.0",
+        "6, 15, 90.0"
+    }, delimiter = ',')
+    public void AreaRetanguloDDT(float num1, float num2, float resultadoEsperado){
+        float resultadoAtual = Main.multiplicar(num1, num2);
+
+        assertEquals(resultadoEsperado, resultadoAtual);
+    }
+
+    @ParameterizedTest
+    @CsvFileSource(resources = "csv/dadosTriangulo.csv", numLinesToSkip = 1, delimiter = ',')
+    public void AreaTrianguloDDT(float num1, float num2, float resultadoEsperado){
+        
+        float resultadoAtual =  Math.round((num1 * num2)/2);
+
+        assertEquals(resultadoEsperado, resultadoAtual);
+    }
+
+
 }
+
     
