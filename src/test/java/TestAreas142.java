@@ -85,7 +85,7 @@ public class TestAreas142 {
     @CsvFileSource(resources = "csv/dadosTriangulo.csv", numLinesToSkip = 1, delimiter = ',')
     public void AreaTrianguloDDT(float num1, float num2, float resultadoEsperado){
         
-        float resultadoAtual =  Math.round((num1 * num2)/2);
+        float resultadoAtual = (num1 * num2)/2;
 
         assertEquals(resultadoEsperado, resultadoAtual);
     }
